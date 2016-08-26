@@ -33,8 +33,8 @@ extension Layout {
     //        view.snp_makeConstraints(file, line: line, closure: closure)
     //        return self
     //    }
-    
-    func adhereTo(_ superView: UIView) -> Constraint<View > {
+
+    func adhereTo(_ superView: UIView) -> Constraint<View> {
         superView.addSubview(view)
         return Constraint(view)
     }

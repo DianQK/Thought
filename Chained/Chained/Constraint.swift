@@ -17,8 +17,15 @@ struct Constraint<View: UIView> {
 }
 
 extension Constraint {
-    func make(file: String = #file, line: UInt = #line, @noescape closure: (make: ConstraintMaker) -> Void) -> Constraint {
-        view.snp_makeConstraints(file, line: line, closure: closure)
+    @discardableResult
+    func make(_ closure: (_ make: ConstraintMaker) -> Void) -> Constraint {
+        view.snp.makeConstraints(closure)
         return self
+    }
+}
+
+extension Constraint {
+    var config: UIConfig<View> {
+        return UIConfig(self.view)
     }
 }

@@ -22,7 +22,8 @@ extension NSObjectProtocol {
 }
 
 extension UIConfig {
-    func custom(_ config: View -> Void) -> UIConfig {
+    @discardableResult
+    func custom(_ config: (View) -> Void) -> UIConfig {
         config(view)
         return self
     }
@@ -34,8 +35,8 @@ extension UIConfig where View: UIButton {
         // ...
         return self
     }
-    
-    func line(title title: String) -> UIConfig {
+
+    func line(title: String) -> UIConfig {
         // ...
         return self
     }
@@ -44,7 +45,7 @@ extension UIConfig where View: UIButton {
 extension UIConfig where View: UILabel {
     /// title 样式
     var title: UIConfig {
-        view.font = UIFont.boldSystemFontOfSize(14)
+        view.font = UIFont.boldSystemFont(ofSize: 14)
         // ...
         return self
     }
@@ -53,10 +54,10 @@ extension UIConfig where View: UILabel {
 
 extension UIConfig where View: UIImageView {
     var fill: UIConfig {
-        view.contentMode = .ScaleAspectFill
+        view.contentMode = .scaleAspectFill
         return self
     }
-    
+    @discardableResult
     func image(_ image: UIImage?) -> UIConfig {
         view.image = image
         return self
@@ -69,7 +70,7 @@ extension UIConfig where View: UIView {
         // ...
         return self
     }
-    
+    @discardableResult
     func backgroundColor(_ color: UIColor?) -> UIConfig {
         view.backgroundColor = color
         return self
@@ -81,13 +82,13 @@ extension UIConfig where View: UITableView {
         view.separatorInset = UIEdgeInsets(top: 1, left: 20, bottom: 1, right: 20)
         return self
     }
-    
-    func automaticDimension(estimatedRowHeight estimatedRowHeight: CGFloat) -> UIConfig {
+    @discardableResult
+    func automaticDimension(estimatedRowHeight: CGFloat) -> UIConfig {
         view.estimatedRowHeight = 48
         view.rowHeight = UITableViewAutomaticDimension
         return self
     }
-    
+    @discardableResult
     func rowHeight(_ height: CGFloat) -> UIConfig {
         view.rowHeight = height
         return self
@@ -96,6 +97,7 @@ extension UIConfig where View: UITableView {
 }
 
 extension UIConfig where View: UITextField {
+    @discardableResult
     func placeholder(_ text: String) -> UIConfig {
         view.placeholder = text
         return self

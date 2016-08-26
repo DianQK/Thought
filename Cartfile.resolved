@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "3cc5b4e8453bec9fd6b973d60e6b0605a38e4cf4"
+github "mac-cain13/R.swift.Library" "v3.0.0.beta.1"
+github "ReactiveX/RxSwift" "3.0.0.alpha.1"
+github "SwiftyJSON/SwiftyJSON" "1a9755949a652967dc2986cd7f4653496e556715"
+github "RxSwiftCommunity/RxDataSources" "1.0.0.beta.1"

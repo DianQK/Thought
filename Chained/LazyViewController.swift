@@ -9,17 +9,17 @@
 import UIKit
 
 class LazyViewController: UIViewController {
-    
+
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "DianQK")
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+
     private lazy var detailButton: UIButton = {
         let button = UIButton()
-        button.setTitle("详情", forState: .Normal)
+        button.setTitle("详情", for: UIControlState())
         return button
     }()
 
@@ -27,16 +27,17 @@ class LazyViewController: UIViewController {
         super.viewDidLoad()
 
         view.addSubview(avatarImageView)
-        avatarImageView.snp_makeConstraints { (make) in
+        avatarImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.view)
             make.centerY.equalTo(self.view)
         }
-        
+
         view.addSubview(detailButton)
-        detailButton.snp_makeConstraints { (make) in
-            make.top.equalTo(self.avatarImageView.snp_bottom).offset(30)
+        detailButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self.avatarImageView.snp.bottom).offset(30)
             make.centerX.equalTo(self.view)
         }
+
     }
 
 }
